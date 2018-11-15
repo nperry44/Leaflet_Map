@@ -1,0 +1,6 @@
+library(spocc)
+library(raster)
+library(mapr)
+athaliana <- occ(query='Arabidopsis thaliana', from='gbif', limit = 2500)
+df = as.data.frame(occ2df(athaliana$gbif))
+map_leaflet(df[,c('name', 'longitude', 'latitude', 'stateProvince', 'country', 'year', 'occurrenceID')])
